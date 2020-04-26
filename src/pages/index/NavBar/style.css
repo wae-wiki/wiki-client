@@ -1,0 +1,34 @@
+.nav-bar{
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  color: #787878;
+  padding: 20px 50px;
+  box-sizing: border-box;
+  margin-bottom: 50px;
+}
+.nav-bar--group{
+  display: flex;
+  width: 100%;
+  padding: 0;
+  margin: 0;
+  list-style: none;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+}
+.nav-bar--item{
+  margin: 0;
+  padding: 0 20px;
+  cursor: pointer;
+}
+.nav-bar--item--link{
+  transition: ease-in-out all .3s;
+  color: #787878;
+  text-decoration: none;
+}
+
+.nav-bar--item--link:hover{
+  color: #000;
+}
