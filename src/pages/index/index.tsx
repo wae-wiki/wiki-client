@@ -3,7 +3,8 @@ import 'csshake/dist/csshake.min.css';
 import NavBar from './NavBar';
 import './style.css';
 
-function App() {
+const Index: React.FC<any> = props => {
+  console.log('props', props);
   return (
     <div className="index-wrapper">
       <span className="index-welcome shake-chunk shake-constant shake-constant--hover">wae wiki</span>
@@ -12,4 +13,4 @@ function App() {
   );
 }
 
-export default App;
+export default Index;

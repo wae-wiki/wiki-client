@@ -13,7 +13,11 @@ const routers = [{
   component: Login
 }, {
   path: '/dashboard',
-  component: Index
+  component: Index,
+  render: props => {
+    console.log('index', props);
+    return <Index {...props} />
+  }
 }, {
   path: '/me',
   render: props => {

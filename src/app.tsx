@@ -11,6 +11,7 @@ const App: React.FC<any> = props => {
         {renderRoutes(routers)}
       </Switch>
     </HashRouter>
+
   )
 };
 
