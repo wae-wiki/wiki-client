@@ -16,6 +16,14 @@ const navbar: nav[] = [{
   label: '个人中心',
   key: 'personalcenter',
   path: '/me'
+}, {
+  label: '文章',
+  key: 'article',
+  path: '/article'
+}, {
+  label: '我要写',
+  key: 'article',
+  path: '/editor'
 }];
 
 export default navbar;
