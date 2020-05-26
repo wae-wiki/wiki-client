@@ -4,6 +4,8 @@ import Snackbar from '@material-ui/core/Snackbar';
 import BraftEditor from 'braft-editor';
 import 'braft-editor/dist/index.css';
 
+import axios from 'axios';
+
 import useEditor from 'hooks/useEditor';
 import './style.css';
 
@@ -12,15 +14,20 @@ const Editor: React.FC<any> = props => {
   const { primaryContent = '' } = props;
   const [content, setContent] = useState(primaryContent);
   const [isSuccess, setIsSuccess] = useState(false);
+  const [isExcuteRequest, setIsExcuteRequest] = useState(false);
   const [editorHeight, setEditorHeight] = useState('100%');
+  const [saveContent, setSaveContent] = useState('');
 
   const handleEditorChange = useCallback(editorContent => {
     setContent(editorContent);
   }, []);
 
   const handleEditorSave = useCallback(() => {
-    setIsSuccess(prevState => !prevState);
-  }, []);
+    const htmlContent = content.toHTML();
+    console.log('content', htmlContent);
+    setSaveContent(htmlContent);
+    setIsExcuteRequest(true);
+  }, [content]);
 
   const handleEditorResize = useCallback(() => {
     setEditorHeight(`${window.innerHeight}px`);
@@ -33,6 +40,26 @@ const Editor: React.FC<any> = props => {
       window.removeEventListener('resize', handleEditorResize);
     }
   }, [handleEditorResize])
+
+  useEffect(() => {
+    if (!isExcuteRequest) {
+      return () => {}
+    }
+    axios({
+      method: 'POST',
+      url: 'http://localhost:8088/editor',
+      data: {
+        content: saveContent
+      },
+      headers:{
+        'Content-Type':'application/x-www-form-urlencoded'
+      }
+    }).then(res => {
+      console.log('res', res);
+      setIsExcuteRequest(false);
+      setIsSuccess(prevState => !prevState);
+    })
+  }, [isExcuteRequest, saveContent]);
 
   return (
     <div className="editor-wrapper" style={{
