@@ -6,11 +6,15 @@ import 'braft-editor/dist/index.css';
 
 import axios from 'axios';
 
+import Title from './Title'
 import useEditor from 'hooks/useEditor';
 import './style.css';
 
 const Editor: React.FC<any> = props => {
-  useEditor();
+  const {
+    data: { title },
+    events: { handleChangeTitle }
+  } = useEditor();
   const { primaryContent = '' } = props;
   const [content, setContent] = useState(primaryContent);
   const [isSuccess, setIsSuccess] = useState(false);
@@ -49,6 +53,7 @@ const Editor: React.FC<any> = props => {
       method: 'POST',
       url: 'http://localhost:8088/editor',
       data: {
+        title,
         content: saveContent
       },
       headers:{
@@ -59,12 +64,16 @@ const Editor: React.FC<any> = props => {
       setIsExcuteRequest(false);
       setIsSuccess(prevState => !prevState);
     })
-  }, [isExcuteRequest, saveContent]);
+  }, [isExcuteRequest, saveContent, title]);
 
   return (
     <div className="editor-wrapper" style={{
       height: editorHeight
     }}>
+      <Title
+        title={title}
+        handleChangeTitle={handleChangeTitle}
+      />
       <BraftEditor
         value={content}
         onChange={handleEditorChange}
