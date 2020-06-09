@@ -16,6 +16,7 @@
     "axios": "^0.19.2",
     "braft-editor": "^2.3.9",
     "csshake": "^1.5.3",
+    "normalize.css": "^8.0.1",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
     "react-router-config": "^5.1.1",
