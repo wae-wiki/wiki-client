@@ -33,7 +33,7 @@ const routers = [{
 }, {
   path: '/editor',
   render: props => {
-    return <Editor />
+    return <Editor {...props} />
   }
 }]
 

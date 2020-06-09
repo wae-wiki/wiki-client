@@ -1,0 +1,31 @@
+.article-wrapper{
+  box-sizing: border-box;
+  margin: 0 20px;
+  padding-top: 20px;
+}
+.article-item{
+  box-sizing: border-box;
+  margin-bottom: 20px;
+}
+.article__author-panel{
+  display: flex;
+  align-items: center;
+  padding: 20px 0;
+  background-color: #e1e4e8;
+}
+.article-title{
+  margin: 0;
+  font-size: 14px;
+  padding: 5px 0;
+  cursor: pointer;
+}
+.article-title:hover{
+  text-decoration: underline;
+}
+.article__content-panel{
+  min-height: 100px;
+  font-size: 12px;
+  background-color: #fff;
+  border: 1px solid #d1d5da;
+  border-radius: 4px;
+}

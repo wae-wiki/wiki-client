@@ -15,7 +15,7 @@ const Editor: React.FC<any> = props => {
     data: { title },
     events: { handleChangeTitle }
   } = useEditor();
-  const { primaryContent = '' } = props;
+  const { primaryContent = '', history } = props;
   const [content, setContent] = useState(primaryContent);
   const [isSuccess, setIsSuccess] = useState(false);
   const [isExcuteRequest, setIsExcuteRequest] = useState(false);
@@ -36,6 +36,10 @@ const Editor: React.FC<any> = props => {
   const handleEditorResize = useCallback(() => {
     setEditorHeight(`${window.innerHeight}px`);
   }, []);
+
+  const handleGoBack = useCallback(() => {
+    history.push('/dashboard');
+  }, [history]);
 
   useEffect(() => {
     handleEditorResize();
@@ -80,7 +84,7 @@ const Editor: React.FC<any> = props => {
         onSave={handleEditorSave}
       />
       <div className="editor-btns">
-        <Button color="default">返回</Button>
+        <Button color="default" onClick={handleGoBack}>返回</Button>
         <Button color="primary" onClick={handleEditorSave}>保存</Button>
       </div>
       <Snackbar

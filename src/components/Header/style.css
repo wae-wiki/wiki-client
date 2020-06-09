@@ -1,0 +1,26 @@
+.header{
+  width: 100%;
+  padding: 10px;
+  box-sizing: border-box;
+  box-shadow: 1px 1px 10px #e3e3e3;
+  background-color: #fff;
+  border-radius: 4px;
+}
+.header-nav-ul__wrapper{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+.header-nav-li__item{
+  cursor: pointer;
+  padding: 10px;
+  color: #999;
+  transition: ease-in-out all .3s;
+}
+.header-nav-li__item:hover{
+  color: #666;
+}
+
