@@ -4,12 +4,6 @@
   right: 0;
   bottom: 0;
   left: 0;
-  /*animation-name: background-fadein;*/
-  /*animation-duration: 3s;*/
-  /*animation-direction: alternate;*/
-  /*animation-iteration-count: infinite;*/
-  /*animation-fill-mode: forwards;*/
-  /*background-image: linear-gradient(180deg, #FF0000, #FF7F00, #FFFF00, #00FF00, #00FFFF, #0000FF, #8B00FF);*/
   background-image: linear-gradient(#787878, #fff);
 }
 
@@ -22,11 +16,35 @@
   font-size: 24px;
 }
 
+.typing-animate{
+  display: block;
+  width: 100px;
+  white-space: nowrap;
+  border-right: 2px solid transparent;
+  overflow: hidden;
+  animation: typing 2.5s steps(16, end);
+}
+.fake-logo{
+  display: inline-block;
+  width: 100px;
+  height: 100px;
+  background: url("../../assets/fake-logo.png");
+}
+
 @keyframes background-fadein {
   0%{
     opacity: 0.2;
   }
   100%{
     opacity: 1;
+  }
+}
+
+@keyframes typing {
+  from{
+    width: 0;
+  }
+  to{
+    width: 100px;
   }
 }

@@ -10,6 +10,13 @@ import Editor from '../pages/editor';
  */
 
 const routers = [{
+  path: '/',
+  exact: true,
+  component: Index,
+  render: props => {
+    return <Index {...props} />
+  }
+},{
   path: '/login',
   exact: true,
   component: Login
