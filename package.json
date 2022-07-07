@@ -16,7 +16,7 @@
     "axios": "^0.19.2",
     "braft-editor": "^2.3.9",
     "csshake": "^1.5.3",
-    "moment": "^2.26.0",
+    "moment": "^2.29.4",
     "normalize.css": "^8.0.1",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
